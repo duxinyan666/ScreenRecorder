@@ -1,0 +1,28 @@
+# 构建产物
+build/
+dist/
+*.spec
+
+# 体积大的二进制：走 zip 分发，不进仓库
+ffmpeg.exe
+ffmpeg/
+ScreenRecorder-win64-portable/
+
+# 运行时产物
+recordings/
+*.mp4
+screen_recorder_error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
