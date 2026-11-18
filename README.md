@@ -25,11 +25,18 @@
 
 ### 方式一：免安装包（推荐，不需要 Python）
 
-1. 下载 [ScreenRecorder-win64-portable.zip](ScreenRecorder-win64-portable.zip)（约 38 MB）
-2. 解压，得到 `ScreenRecorder` 文件夹（约 102 MB，内含 `ScreenRecorder.exe`、`_internal`、`ffmpeg.exe`）
-3. 双击 `ScreenRecorder.exe`
+完整包 38.3 MB（40,140,660 字节），因为超出了 GitHub 单次上传体积限制，被切成 7 片放在 [release/](release/) 目录：
 
-> 整个文件夹要一起复制或移动，只拿 `ScreenRecorder.exe` 单独跑会因缺运行时启动失败。
+1. 下载 `release/part-01` ~ `release/part-07`（7 个文件，共约 38 MB）
+2. 双击 `release/合并.bat` 自动合并并打印 SHA256；Linux / macOS 用 `cat part-* > ../ScreenRecorder-win64-portable.zip`
+3. 校验 SHA256 是否为 `28e8639d7cb836e43418bc7437c7d2ec2f6308da7e05ed1cc18836451bac2bfa`
+4. 解压得到的 `ScreenRecorder-win64-portable.zip`，双击里面的 `ScreenRecorder.exe`
+
+详见 [release/README.md](release/README.md)。
+
+也可以按 [docs/BUILD.md](docs/BUILD.md) 自己打包，两条命令就能得到同样的产物。
+
+> 整个 `ScreenRecorder` 文件夹（约 102 MB）要一起复制或移动，只拿 `ScreenRecorder.exe` 单独跑会因缺运行时启动失败。
 
 ### 方式二：从源码运行
 
@@ -102,7 +109,9 @@ screen_recorder.py                    主程序：界面 + 录制内核 + 命令
 启动录屏.bat                          双击启动（自动挑选 pythonw）
 requirements.txt                      空的，只为表明无需依赖
 app.ico                               程序图标
-ScreenRecorder-win64-portable.zip     免安装发布包（exe + 运行时 + 内置 ffmpeg）
+release/part-01 … part-07             免安装包分片（exe + 运行时 + 内置 ffmpeg）
+release/合并.bat                      分片合并脚本（带 SHA256 校验）
+release/README.md                     分片说明
 docs/USAGE.md                         完整使用手册、参数详解、故障排查
 docs/BUILD.md                         打包成免安装 exe 的步骤与实测对比
 docs/images/main-window.png           界面截图
