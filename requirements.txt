@@ -1,0 +1,2 @@
+# 本项目不依赖任何第三方 Python 库，只用标准库（tkinter + subprocess + threading）。
+# FFmpeg 是可执行文件依赖，见 README 的「环境要求」。
